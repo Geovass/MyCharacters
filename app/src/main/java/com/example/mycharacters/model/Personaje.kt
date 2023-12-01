@@ -6,7 +6,7 @@ data class Personaje(
     @SerializedName("id")
     val id: String?,
     @SerializedName("fullName")
-    val fullName: String,
-    @SerializedName("imageURL")
-    val imageURL: String
+    val fullName: String?,
+    @SerializedName("imageUrl")
+    val imageUrl: String?
 )

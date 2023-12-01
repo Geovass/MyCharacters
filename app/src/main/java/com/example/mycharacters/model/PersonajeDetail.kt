@@ -11,6 +11,6 @@ data class PersonajeDetail(
     val title: String?,
     @SerializedName("family")
     val family: String?,
-    @SerializedName("imageURL")
-    val imageURL: String
+    @SerializedName("imageUrl")
+    val imageUrl: String?
 )

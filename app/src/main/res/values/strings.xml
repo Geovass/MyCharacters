@@ -8,4 +8,5 @@
     <string name="no_conexion">No se detecta ninguna conexion a internet</string>
     <string name="respuesta_servidor">Respuesta del servidor: %1$s</string>
     <string name="datos">Datos: %1$s</string>
+    <string name="click_personaje">%1$s</string>
 </resources>

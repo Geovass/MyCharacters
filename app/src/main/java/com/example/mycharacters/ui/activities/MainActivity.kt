@@ -41,7 +41,11 @@ class MainActivity : AppCompatActivity() {
                 Log.d(Constants.LOGTAG, getString(R.string.respuesta_servidor, response.toString()))
                 Log.d(Constants.LOGTAG, getString(R.string.datos, response.body().toString()))
 
-                val charactersAdapter = CharactersAdapter(response.body()!!)
+                val charactersAdapter = CharactersAdapter(response.body()!!){personaje ->
+                    // Click en cada personaje
+                    Toast.makeText(this@MainActivity,
+                        getString(R.string.click_personaje, personaje.fullName), Toast.LENGTH_SHORT).show()
+                }
 
                 binding.rvMenu.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
                 binding.rvMenu.adapter = charactersAdapter

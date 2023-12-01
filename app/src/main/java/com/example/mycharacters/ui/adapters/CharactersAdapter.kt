@@ -12,7 +12,8 @@ import com.example.mycharacters.model.Personaje
  */
 class CharactersAdapter(
 
-    private var personajes: ArrayList<Personaje>
+    private var personajes: ArrayList<Personaje>,
+    private var onCharacterClicked: (Personaje) -> Unit
 
 ) : RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
 
@@ -21,7 +22,7 @@ class CharactersAdapter(
 
         fun bind(personaje: Personaje) {
             Glide.with(itemView.context)
-                .load(personaje.imageURL)
+                .load(personaje.imageUrl)
                 .into(binding.ivIcono)
             binding.tvFullName.text = personaje.fullName
         }
@@ -36,6 +37,10 @@ class CharactersAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(personajes[position])
+
+        holder.itemView.setOnClickListener {
+            onCharacterClicked(personajes[position])
+        }
     }
 
 }
