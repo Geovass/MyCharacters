@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MyCharacters</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="fullname">FullName</string>
+    <string name="click_elemento">%1$s</string>
+    <string name="name">Nombre %d</string>
+    <string name="no_conexion">No se detecta ninguna conexion a internet</string>
+    <string name="respuesta_servidor">Respuesta del servidor: %1$s</string>
+    <string name="datos">Datos: %1$s</string>
+</resources>
