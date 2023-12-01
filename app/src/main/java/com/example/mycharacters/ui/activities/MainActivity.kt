@@ -1,10 +1,12 @@
 package com.example.mycharacters.ui.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mycharacters.ui.adapters.CharactersAdapter
@@ -45,6 +47,14 @@ class MainActivity : AppCompatActivity() {
                     // Click en cada personaje
                     Toast.makeText(this@MainActivity,
                         getString(R.string.click_personaje, personaje.fullName), Toast.LENGTH_SHORT).show()
+
+                    val bundle = bundleOf(
+                        "id" to personaje.id
+                    )
+
+                    val intent = Intent(this@MainActivity, DetailsActivity::class.java)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
                 }
 
                 binding.rvMenu.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)

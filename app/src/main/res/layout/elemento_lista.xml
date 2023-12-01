@@ -65,8 +65,8 @@
 
     <TextView
         android:id="@+id/tvFullName"
-        android:layout_width="287dp"
-        android:layout_height="54dp"
+        android:layout_width="273dp"
+        android:layout_height="55dp"
         android:background="@color/light_grey"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/fullname"

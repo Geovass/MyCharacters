@@ -7,6 +7,8 @@ data class PersonajeDetail(
     val firstName: String?,
     @SerializedName("lastName")
     val lastName: String?,
+    @SerializedName("fullName")
+    val fullName: String?,
     @SerializedName("title")
     val title: String?,
     @SerializedName("family")

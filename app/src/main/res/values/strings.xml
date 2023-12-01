@@ -9,4 +9,8 @@
     <string name="respuesta_servidor">Respuesta del servidor: %1$s</string>
     <string name="datos">Datos: %1$s</string>
     <string name="click_personaje">%1$s</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="title">Title</string>
+    <string name="family">Family</string>
 </resources>
