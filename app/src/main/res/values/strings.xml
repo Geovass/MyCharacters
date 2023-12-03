@@ -13,4 +13,9 @@
     <string name="last_name">Last Name</string>
     <string name="title">Title</string>
     <string name="family">Family</string>
+    <string name="response_familyImage">Respuesta: %1$s</string>
+    <string name="bfirst_name">First Name:</string>
+    <string name="blast_name">Last Name:</string>
+    <string name="btitle">Title:</string>
+    <string name="bfamily">Family:</string>
 </resources>

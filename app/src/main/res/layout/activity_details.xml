@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,31 +11,33 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/ivPersonaje"
-        android:layout_width="113dp"
-        android:layout_height="148dp"
+        android:layout_width="130dp"
+        android:layout_height="175dp"
         android:scaleType="centerCrop"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238"
+        app:layout_constraintVertical_bias="0.239"
+        app:riv_border_color="@color/white"
+        app:riv_border_width="2dp"
         app:riv_corner_radius="10dp" />
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/ivCasa"
-        android:layout_width="113dp"
-        android:layout_height="148dp"
+        android:layout_width="130dp"
+        android:layout_height="175dp"
         android:layout_marginEnd="56dp"
-
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.986"
+        app:layout_constraintHorizontal_bias="0.977"
         app:layout_constraintStart_toEndOf="@+id/ivPersonaje"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238"
+        app:layout_constraintVertical_bias="0.239"
+        app:riv_border_color="@color/white"
+        app:riv_border_width="2dp"
         app:riv_corner_radius="10dp" />
 
     <TextView
@@ -46,81 +49,163 @@
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/fullname"
         android:textColor="@color/wine"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/ivPersonaje"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/textFamily"
+        android:layout_width="150dp"
+        android:layout_height="85dp"
+        android:background="@color/light_grey"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/family"
+        android:textColor="@color/wine"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93"
+        tools:ignore="TextSizeCheck" />
 
     <TextView
         android:id="@+id/textFirstName"
-        android:layout_width="300dp"
+        android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
         android:background="@color/light_grey"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/first_name"
         android:textColor="@color/wine"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textLastName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.781"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.928" />
+        app:layout_constraintVertical_bias="0.933"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:background="@color/light_grey"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/title"
+        android:textColor="@color/wine"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textFamily"
+        app:layout_constraintEnd_toStartOf="@+id/textTitle"
+        app:layout_constraintHorizontal_bias="0.683"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.817"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/tvFirstName"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:background="@color/light_grey"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/first_name"
+        android:textColor="@color/wine"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textLastName"
+        app:layout_constraintEnd_toStartOf="@+id/textFirstName"
+        app:layout_constraintHorizontal_bias="0.607"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.938"
+        tools:ignore="TextSizeCheck" />
 
     <TextView
         android:id="@+id/textLastName"
-        android:layout_width="300dp"
+        android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_marginBottom="30dp"
         android:background="@color/light_grey"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/last_name"
         android:textColor="@color/wine"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.781"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.997"
+        tools:ignore="TextSizeCheck" />
 
     <TextView
         android:id="@+id/textTitle"
-        android:layout_width="300dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="32dp"
         android:background="@color/light_grey"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/title"
         android:textColor="@color/wine"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textFamily"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.729"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.995"
+        tools:ignore="TextSizeCheck" />
 
     <TextView
-        android:id="@+id/textFamily"
-        android:layout_width="300dp"
+        android:id="@+id/tvFamily"
+        android:layout_width="120dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="160dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="28dp"
         android:background="@color/light_grey"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/family"
         android:textColor="@color/wine"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/textFamily"
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/tvLastName"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:background="@color/light_grey"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/last_name"
+        android:textColor="@color/wine"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textTitle"
+        app:layout_constraintEnd_toStartOf="@+id/textLastName"
+        app:layout_constraintHorizontal_bias="0.607"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.929"
+        tools:ignore="TextSizeCheck" />
 
     <ProgressBar
         android:id="@+id/pbConexion"
@@ -131,9 +216,9 @@
         android:indeterminateDuration="500"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
-
+        app:layout_constraintVertical_bias="0.546" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

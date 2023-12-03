@@ -28,7 +28,7 @@ class DetailsActivity : AppCompatActivity() {
 
         val call = RetrofitService.getRetrofit()
             .create(CharactersApi::class.java)
-            .getCharacterDetail(id)
+            .getCharacterDetailApiary(id)
 
         call.enqueue(object: Callback<PersonajeDetail>{
             override fun onResponse(call: Call<PersonajeDetail>, response: Response<PersonajeDetail>) {
@@ -45,6 +45,9 @@ class DetailsActivity : AppCompatActivity() {
                     textLastName.text = response.body()?.lastName
                     textTitle.text = response.body()?.title
                     textFamily.text = response.body()?.family
+                    Glide.with(this@DetailsActivity)
+                        .load(response.body()?.familyImage)
+                        .into(ivCasa)
                 }
             }
 
@@ -57,5 +60,10 @@ class DetailsActivity : AppCompatActivity() {
             }
 
         })
+
+        binding.tvFirstName.text = getString(R.string.bfirst_name)
+        binding.tvLastName.text = getString(R.string.blast_name)
+        binding.tvTitle.text = getString(R.string.btitle)
+        binding.tvFamily.text = getString(R.string.bfamily)
     }
 }
