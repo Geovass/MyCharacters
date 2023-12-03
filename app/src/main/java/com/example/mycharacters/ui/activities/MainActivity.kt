@@ -16,6 +16,8 @@ import com.example.mycharacters.model.Personaje
 import com.example.mycharacters.network.CharactersApi
 import com.example.mycharacters.network.RetrofitService
 import com.example.mycharacters.utils.Constants
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,53 +25,74 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var firebaseAuth: FirebaseAuth
+    private var user: FirebaseUser? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val call = RetrofitService.getRetrofit()
-            .create(CharactersApi::class.java)
-            .getCharacters("characters/characters_list")
+        firebaseAuth = FirebaseAuth.getInstance()
+        user = firebaseAuth.currentUser
 
-        call.enqueue(object: Callback<ArrayList<Personaje>>{
-            override fun onResponse(
-                call: Call<ArrayList<Personaje>>,
-                response: Response<ArrayList<Personaje>>
-            ) {
-                binding.pbConexion.visibility = View.INVISIBLE
+        if(user?.isEmailVerified != true){
+            firebaseAuth.signOut()
+            startActivity(Intent(this, Login::class.java))
+            finish()
+            Toast.makeText(this@MainActivity,
+                getString(R.string.email_verify),
+                Toast.LENGTH_SHORT).show()
+        }else{
+            val call = RetrofitService.getRetrofit()
+                .create(CharactersApi::class.java)
+                .getCharacters("characters/characters_list")
 
-                Log.d(Constants.LOGTAG, getString(R.string.respuesta_servidor, response.toString()))
-                Log.d(Constants.LOGTAG, getString(R.string.datos, response.body().toString()))
+            call.enqueue(object: Callback<ArrayList<Personaje>>{
+                override fun onResponse(
+                    call: Call<ArrayList<Personaje>>,
+                    response: Response<ArrayList<Personaje>>
+                ) {
+                    binding.pbConexion.visibility = View.INVISIBLE
 
-                val charactersAdapter = CharactersAdapter(response.body()!!){personaje ->
-                    // Click en cada personaje
-                    Toast.makeText(this@MainActivity,
-                        getString(R.string.click_personaje, personaje.fullName), Toast.LENGTH_SHORT).show()
+                    Log.d(Constants.LOGTAG, getString(R.string.respuesta_servidor, response.toString()))
+                    Log.d(Constants.LOGTAG, getString(R.string.datos, response.body().toString()))
 
-                    val bundle = bundleOf(
-                        "id" to personaje.id
-                    )
+                    val charactersAdapter = CharactersAdapter(response.body()!!){personaje ->
+                        // Click en cada personaje
+                        Toast.makeText(this@MainActivity,
+                            getString(R.string.click_personaje, personaje.fullName), Toast.LENGTH_SHORT).show()
 
-                    val intent = Intent(this@MainActivity, DetailsActivity::class.java)
-                    intent.putExtras(bundle)
-                    startActivity(intent)
+                        val bundle = bundleOf(
+                            "id" to personaje.id
+                        )
+
+                        val intent = Intent(this@MainActivity, DetailsActivity::class.java)
+                        intent.putExtras(bundle)
+                        startActivity(intent)
+                    }
+
+                    binding.rvMenu.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
+                    binding.rvMenu.adapter = charactersAdapter
+
                 }
 
-                binding.rvMenu.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
-                binding.rvMenu.adapter = charactersAdapter
+                override fun onFailure(call: Call<ArrayList<Personaje>>, t: Throwable) {
+                    binding.pbConexion.visibility = View.INVISIBLE
+                    Toast.makeText(this@MainActivity,
+                        getString(R.string.no_conexion),
+                        Toast.LENGTH_SHORT)
+                        .show()
+                }
 
-            }
+            })
+        }
 
-            override fun onFailure(call: Call<ArrayList<Personaje>>, t: Throwable) {
-                binding.pbConexion.visibility = View.INVISIBLE
-                Toast.makeText(this@MainActivity,
-                    getString(R.string.no_conexion),
-                    Toast.LENGTH_SHORT)
-                    .show()
-            }
+        binding.signOutButton.setOnClickListener {
 
-        })
+            firebaseAuth.signOut()
+            startActivity(Intent(this, Login::class.java))
+            finish()
+        }
     }
 }

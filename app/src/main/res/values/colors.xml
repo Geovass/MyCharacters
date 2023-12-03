@@ -6,4 +6,11 @@
     <color name="light_grey">#8B8888</color>
     <color name="blue_grey">#31313C</color>
     <color name="light_wine">#5E384B</color>
+    <color name="dark_wine">#3F1D2E</color>
+    <color name="dark_green">#4A6D16</color>
+    <color name="violet">#CFD1F5</color>
+    <color name="dark_blue">#000555</color>
+    <color name="blue">#000EEE</color>
+    <color name="darkest_blue">#000333</color>
+    <color name="darker_blue">#000666</color>>
 </resources>

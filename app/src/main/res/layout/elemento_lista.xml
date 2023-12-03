@@ -14,7 +14,7 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toTopOf="@+id/guideline"
         app:layout_constraintVertical_bias="0.02"
@@ -32,10 +32,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.457" />
+        app:layout_constraintVertical_bias="0.448" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
