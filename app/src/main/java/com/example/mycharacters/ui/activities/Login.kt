@@ -15,6 +15,10 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
 
+/**
+ * Creado por Romero Rivera Geovanni el 28/11/23
+ */
+
 class Login : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
