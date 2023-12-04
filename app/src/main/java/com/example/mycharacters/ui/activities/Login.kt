@@ -22,7 +22,7 @@ class Login : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
 
     private var email: String = ""
-    private var contrasenia: String = ""
+    private var contra: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,20 +41,20 @@ class Login : AppCompatActivity() {
             loginButton.setOnClickListener {
                 if(!validaCampos()) return@setOnClickListener
 
-                autenticaUsuario(email, contrasenia)
+                autenticaUsuario(email, contra)
             }
 
             registerButton.setOnClickListener {
                 if(!validaCampos()) return@setOnClickListener
 
-                registraUsuario(email, contrasenia)
+                registraUsuario(email, contra)
             }
 
             tvForgotPassword.setOnClickListener {
                 val resetEmail = EditText(it.context)
                 resetEmail.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
 
-                val passwordResetDialog = AlertDialog.Builder(it.context)
+                AlertDialog.Builder(it.context)
                     .setTitle(getString(R.string.reset_password))
                     .setMessage(getString(R.string.enterEmailReset))
                     .setView(resetEmail)
@@ -83,7 +83,7 @@ class Login : AppCompatActivity() {
 
     private fun validaCampos(): Boolean{
         email = binding.etEmail.text.toString().trim()
-        contrasenia = binding.etPassword.text.toString().trim()
+        contra = binding.etPassword.text.toString().trim()
 
         if(email.isEmpty()){
             binding.etEmail.error = getString(R.string.emailRequired)
@@ -91,7 +91,7 @@ class Login : AppCompatActivity() {
             return false
         }
 
-        if(contrasenia.isEmpty() || contrasenia.length < 6){
+        if(contra.isEmpty() || contra.length < 6){
             binding.etPassword.error = getString(R.string.passwordLengthRequired)
             binding.etPassword.requestFocus()
             return false

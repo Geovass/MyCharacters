@@ -12,6 +12,8 @@
         android:layout_height="140dp"
         android:scaleType="centerCrop"
 
+        app:riv_border_color="@color/wine"
+        app:riv_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintHorizontal_bias="0.0"
@@ -22,20 +24,21 @@
 
     <TextView
         android:id="@+id/tvFullName"
-        android:layout_width="277dp"
+        android:layout_width="284dp"
         android:layout_height="55dp"
-        android:background="@color/light_grey"
+        android:background="@drawable/border_view"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/fullname"
         android:textColor="@color/wine"
         android:textSize="20sp"
         android:textStyle="bold"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.448" />
+        app:layout_constraintVertical_bias="0.514" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -70,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="407dp" />
+        app:layout_constraintGuide_begin="405dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

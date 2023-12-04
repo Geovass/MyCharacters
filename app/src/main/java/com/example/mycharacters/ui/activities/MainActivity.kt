@@ -36,56 +36,58 @@ class MainActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         user = firebaseAuth.currentUser
 
+
+        val call = RetrofitService.getRetrofit()
+            .create(CharactersApi::class.java)
+            .getCharacters("characters/characters_list")
+
+        call.enqueue(object: Callback<ArrayList<Personaje>>{
+            override fun onResponse(
+                call: Call<ArrayList<Personaje>>,
+                response: Response<ArrayList<Personaje>>
+            ) {
+                binding.pbConexion.visibility = View.INVISIBLE
+
+                Log.d(Constants.LOGTAG, getString(R.string.respuesta_servidor, response.toString()))
+                Log.d(Constants.LOGTAG, getString(R.string.datos, response.body().toString()))
+
+                val charactersAdapter = CharactersAdapter(response.body()!!){personaje ->
+                    // Click en cada personaje
+                    Toast.makeText(this@MainActivity,
+                        getString(R.string.click_personaje, personaje.fullName), Toast.LENGTH_SHORT).show()
+
+                    val bundle = bundleOf(
+                        "id" to personaje.id
+                    )
+
+                    val intent = Intent(this@MainActivity, DetailsActivity::class.java)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
+                }
+
+                binding.rvMenu.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
+                binding.rvMenu.adapter = charactersAdapter
+
+            }
+
+            override fun onFailure(call: Call<ArrayList<Personaje>>, t: Throwable) {
+                binding.pbConexion.visibility = View.INVISIBLE
+                Toast.makeText(this@MainActivity,
+                    getString(R.string.no_conexion),
+                    Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+        })
+
         if(user?.isEmailVerified != true){
             firebaseAuth.signOut()
             startActivity(Intent(this, Login::class.java))
             finish()
             Toast.makeText(this@MainActivity,
-                getString(R.string.email_verify),
-                Toast.LENGTH_SHORT).show()
-        }else{
-            val call = RetrofitService.getRetrofit()
-                .create(CharactersApi::class.java)
-                .getCharacters("characters/characters_list")
-
-            call.enqueue(object: Callback<ArrayList<Personaje>>{
-                override fun onResponse(
-                    call: Call<ArrayList<Personaje>>,
-                    response: Response<ArrayList<Personaje>>
-                ) {
-                    binding.pbConexion.visibility = View.INVISIBLE
-
-                    Log.d(Constants.LOGTAG, getString(R.string.respuesta_servidor, response.toString()))
-                    Log.d(Constants.LOGTAG, getString(R.string.datos, response.body().toString()))
-
-                    val charactersAdapter = CharactersAdapter(response.body()!!){personaje ->
-                        // Click en cada personaje
-                        Toast.makeText(this@MainActivity,
-                            getString(R.string.click_personaje, personaje.fullName), Toast.LENGTH_SHORT).show()
-
-                        val bundle = bundleOf(
-                            "id" to personaje.id
-                        )
-
-                        val intent = Intent(this@MainActivity, DetailsActivity::class.java)
-                        intent.putExtras(bundle)
-                        startActivity(intent)
-                    }
-
-                    binding.rvMenu.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
-                    binding.rvMenu.adapter = charactersAdapter
-
-                }
-
-                override fun onFailure(call: Call<ArrayList<Personaje>>, t: Throwable) {
-                    binding.pbConexion.visibility = View.INVISIBLE
-                    Toast.makeText(this@MainActivity,
-                        getString(R.string.no_conexion),
-                        Toast.LENGTH_SHORT)
-                        .show()
-                }
-
-            })
+            getString(R.string.email_verify),
+            Toast.LENGTH_SHORT).show()
+            user?.reload()
         }
 
         binding.signOutButton.setOnClickListener {

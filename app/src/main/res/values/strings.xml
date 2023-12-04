@@ -6,18 +6,18 @@
     <string name="respuesta_servidor">Respuesta del servidor: %1$s</string>
     <string name="datos">Datos: %1$s</string>
     <string name="click_personaje">%1$s</string>
-    <string name="first_name">First Name</string>
-    <string name="last_name">Last Name</string>
-    <string name="title">Title</string>
-    <string name="family">Family</string>
-    <string name="bfirst_name">First Name:</string>
-    <string name="blast_name">Last Name:</string>
-    <string name="btitle">Title:</string>
-    <string name="bfamily">Family:</string>
+    <string name="first_name">Nombre</string>
+    <string name="last_name">Apellido</string>
+    <string name="title">Titulo</string>
+    <string name="family">Familia</string>
+    <string name="bfirst_name">Nombre:</string>
+    <string name="blast_name">Apellido:</string>
+    <string name="btitle">Titulo:</string>
+    <string name="bfamily">Familia:</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="register">Register</string>
-    <string name="forgot_password">Forgot your password? Click here</string>
+    <string name="forgot_password">Olvidaste la contraseña? Click aqui!</string>
     <string name="login">Login</string>
     <string name="created_by">Created by Geovanni Romero</string>
     <string name="or">or</string>
@@ -54,5 +54,5 @@
     <string name="no_network">NO_NETWORK</string>
     <string name="sign_out">Sign Out</string>
     <string name="clic_boton">clic_boton</string>
-    <string name="email_verify">Debes verificar tu correo para poder acceder a la aplicacion</string>
+    <string name="email_verify">Verifica tu correo para poder acceder a la aplicacion</string>
 </resources>

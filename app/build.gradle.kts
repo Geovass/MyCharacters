@@ -43,8 +43,10 @@ android {
 
 dependencies {
 
+    implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
     implementation("com.google.firebase:firebase-auth:22.3.0")
     implementation("com.google.android.gms:play-services-measurement-api:21.5.0")
+    implementation("com.firebaseui:firebase-ui-auth:7.2.0")
     val retrofitVersion = "2.9.0"
     val glideVersion = "4.15.1"
 
