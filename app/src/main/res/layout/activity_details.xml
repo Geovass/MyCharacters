@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.239"
-        app:riv_border_color="@color/white"
+        app:riv_border_color="@color/darkest_blue"
         app:riv_border_width="2dp"
         app:riv_corner_radius="10dp" />
 
@@ -36,7 +36,7 @@
         app:layout_constraintStart_toEndOf="@+id/ivPersonaje"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.239"
-        app:riv_border_color="@color/white"
+        app:riv_border_color="@color/darkest_blue"
         app:riv_border_width="2dp"
         app:riv_corner_radius="10dp" />
 
@@ -70,10 +70,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintHorizontal_bias="0.789"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.937"
+        app:layout_constraintVertical_bias="0.93"
         tools:ignore="TextSizeCheck" />
 
     <TextView
@@ -92,7 +92,7 @@
         app:layout_constraintHorizontal_bias="0.781"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933"
+        app:layout_constraintVertical_bias="0.944"
         tools:ignore="TextSizeCheck" />
 
     <TextView
@@ -123,12 +123,12 @@
         android:textColor="@color/wine"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textLastName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textFirstName"
         app:layout_constraintHorizontal_bias="0.607"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.938"
+        app:layout_constraintVertical_bias="0.507"
         tools:ignore="TextSizeCheck" />
 
     <TextView
@@ -199,12 +199,12 @@
         android:textColor="@color/wine"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textLastName"
         app:layout_constraintHorizontal_bias="0.607"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.929"
+        app:layout_constraintVertical_bias="0.579"
         tools:ignore="TextSizeCheck" />
 
     <ProgressBar
